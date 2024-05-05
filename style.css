@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  
+  body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #1A2324;
+    color: #FBF8DE;
+  }
+  
+  h1 {
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 20px;
+    text-align: center;
+  }
+  h2 {
+    color: #FBF8DE;
+  }
+  
+  
+  /* Page structure */
+  .wrapper {
+    min-height: var(--wrapper-height);
+    display: grid;
+    place-items: center;
+    margin: 0 1rem;
+  }
+  
+  .box {
+    border: 2px dashed;
+    border-radius: 4px;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    font-weight: 200; 
+    background: #0B1111;
+    color: #FBF8DE;
+    border: 0px;
+    box-sizing: border-box;
+    border-radius: 100px;
+    padding: 1rem 3rem;
+    transition: 500ms;
+    width: 363px;
+    margin: auto; 
+  }
+  
+  /* part one – login to spotify */
+  
+  .part_one{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    height: 100vh;
+  }
+  
+  .page_title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    margin: 200px;
+  }
+  
+  .login_spotify,
+  .form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+  }
+  
+  .page_title p{
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 4px;
+  }
+  
+  .login_spotify p{
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+  }
+  
+  /* part two – drop playlist url */
+  
+  .part_two{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    height: 100vh;
+  }
+  
+  .part_two_text{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    width: 700px;
+    margin: 120px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .part_two_text p{
+    font-size: 16px;
+    font-weight: 200;
+    font-style: Italic;
+  }
+  
+  .form p{
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+  }
+  
+  .playlist input[type="url"]::placeholder {
+    color: #FBF8DE; /* Set placeholder text color */
+    font-style: italic; /* Optionally set italic font style */
+  }
+  
+  #link {
+    background-color: transparent;
+    border: none; /* Remove any existing borders */
+    border-bottom: 2px solid #FBF8DE; /* Set bottom border properties */
+    padding: 8px; /* Add padding to the input field */
+    width: 700px;
+  }
+  
+  
+  
+  
