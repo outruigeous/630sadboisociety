@@ -215,21 +215,8 @@
     align-content: center;
     justify-content: center;
     gap: 16px;
-    padding: 80px 120px;
+    padding: 48px 250px;
     height: 100vh;
-  }
-
-
-  .scatter_graph {
-    display: flex;
-    flex: 1 1 auto; 
-    height: 470px;
-  }
-
-  #chart {
-    padding: 24px;
-    background-color: rgba(113, 148, 152, 0.05);
-    border-radius: 4px;
   }
 
   #angryboi_results,
@@ -240,7 +227,7 @@
     align-items: center;
     flex: 1 1 auto;
     flex-flow: row;
-    width: 60%;
+    width: 100%;
   }
 
   .svg-icon {
@@ -259,16 +246,37 @@
     font-weight: 200;
   }
 
+  .scatter_graph {
+    display: flex;
+    flex: 1 1 auto; 
+    height: 470px;
+  }
+
+  #part_three h3 {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  #chart {
+    padding: 20px;
+    background-color: rgba(113, 148, 152, 0.07);
+    border-radius: 4px;
+  }
+
+  
+
   #part_three p{
     font-size: 16px;
     font-weight: 200;
     font-style: Italic;
   }
 
-  .generate_tracklist {
+  #generate_tracklist,
+  #tracklist {
     display: flex;
     flex: 0 0 48%;
     flex-flow: column wrap;
+    font-weight: 300;
   }
 
     /* part three – chart and analysis -option 2 */

@@ -265,11 +265,60 @@ async function setupChart() {
           },
         },
         legend: {
-          display: false,
+          display: true,
+          labels: {
+            color: "#FBF8DE",
+            font: {
+              family: "Roboto Mono",
+              size: 12,
+              weight: 300,
+            },
+            letterSpacing: 4,
+          },
         },
       },
     },
   });
+  chart.data.datasets = [
+    {
+      label: "angryboi", // Label for angryboi
+      data: [], // Empty data array to be filled later
+      backgroundColor: pointBackgroundColor["angryboi"],
+    },
+    {
+      label: "sadboi", // Label for sadboi
+      data: [], // Empty data array to be filled later
+      backgroundColor: pointBackgroundColor["sadboi"],
+    },
+    {
+      label: "chillboi", // Label for chillboi
+      data: [], // Empty data array to be filled later
+      backgroundColor: pointBackgroundColor["chillboi"],
+    },
+    {
+      label: "hyperboi", // Label for hyperboi
+      data: [], // Empty data array to be filled later
+      backgroundColor: pointBackgroundColor["hyperboi"],
+    },
+  ];
+}
+
+async function drawChart(processedData) {
+  console.log(chart.data);
+  // Iterate over processedData and populate datasets with corresponding data points
+  processedData.forEach((dataPoint) => {
+    // Find the index of the dataset corresponding to the data point's boiType
+    const datasetIndex = chart.data.datasets.findIndex(
+      (dataset) => dataset.label === dataPoint.boiType
+    );
+    // Add the data point to the dataset
+    chart.data.datasets[datasetIndex].data.push({
+      x: dataPoint.data[0].x,
+      y: dataPoint.data[0].y,
+    });
+  });
+  chart.update();
+  console.log("Updated chart!");
 }
 
 document.addEventListener("DOMContentLoaded", async (event) => {
