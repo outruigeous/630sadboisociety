@@ -39,8 +39,6 @@
   .box {
     border: 2px dashed;
     border-radius: 4px;
-    width: fit-content;
-    height: fit-content;
   }
   
   .btn:hover{
@@ -51,7 +49,7 @@
     font-size: 16px;
     font-weight: 200; 
     opacity: 1;
-    background-color: rgba(17, 23, 24, 1);
+    background-color: rgba(9, 12, 12, 1);
     color: #FBF8DE;
     border: 0px;
     box-sizing: border-box;
@@ -68,7 +66,7 @@
     font-family: "Roboto Mono", monospace;
     font-size: 16px;
     font-weight: 200;
-    background-color: rgba(17, 23, 24, 0.50);
+    background-color: rgba(9, 12, 12, 0.5);
     color: #FBF8DE;
     border: 0px;
     box-sizing: border-box;
@@ -145,23 +143,17 @@
   #part_two {
     display: flex;
     flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
   }
-  .part_two_text{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-flow: column wrap;
-    width: 100%;
-    margin-top: 120px;
-    text-align: center;
-    line-height: 1.5;
-  }
   
-  .part_two_text p{
+  #part_two p{
     font-size: 16px;
     font-weight: 200;
     font-style: Italic;
+    text-align: center;
+    line-height: 1.5;
   }
 
   .form {
@@ -169,14 +161,20 @@
     justify-content: center;
     align-content: center;
     flex-flow: column wrap;
-    margin-top: 128px;
+    /* margin-bottom: 300px; */
     width: 100%;
     font-size: 16px;
     font-weight: 200;
     text-align: center;
   }
-  
+
   .form p{
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+  }
+  
+  .form label{
     font-size: 16px;
     font-weight: 200;
     text-align: center;
@@ -225,8 +223,13 @@
   .scatter_graph {
     display: flex;
     flex: 1 1 auto; 
-    justify-content: center;
     height: 470px;
+  }
+
+  #chart {
+    padding: 24px;
+    background-color: rgba(113, 148, 152, 0.05);
+    border-radius: 4px;
   }
 
   #angryboi_results,
@@ -237,6 +240,7 @@
     align-items: center;
     flex: 1 1 auto;
     flex-flow: row;
+    width: 60%;
   }
 
   .svg-icon {
