@@ -41,7 +41,6 @@
     border-radius: 4px;
     width: fit-content;
     height: fit-content;
-    margin: 0 auto;
   }
   
   .btn:hover{
@@ -216,14 +215,17 @@
     display: none;
     flex-flow: column;
     align-content: center;
-    justify-content: space-around;
+    justify-content: center;
     gap: 16px;
     padding: 80px 120px;
+    height: 100vh;
   }
+
 
   .scatter_graph {
     display: flex;
     flex: 1 1 auto; 
+    justify-content: center;
     height: 470px;
   }
 

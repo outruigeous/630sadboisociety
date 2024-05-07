@@ -26,14 +26,8 @@ async function getUserData() {
   return await response.json();
 }
 
-function moveToPartTwo() {
-  partOneContainer.style.display = "none";
-  partTwoContainer.style.display = "flex";
-}
-
-function moveToPartThree() {
-  partTwoContainer.style.display = "none";
-  partThreeContainer.style.display = "flex";
+function goToPartTwo() {
+  document.querySelector("#part_two").scrollIntoView();
 }
 
 async function getUserPlaylist() {
@@ -224,8 +218,9 @@ form.addEventListener("submit", async (submitEvent) => {
 
     partThreeContainer.style.display = "flex";
     drawChart(processedData);
-    chart.update();
+
     partThreeContainer.scrollIntoView();
+    chart.resize();
   } catch (e) {
     console.log(e);
   }

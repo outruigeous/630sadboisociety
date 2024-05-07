@@ -36,9 +36,9 @@
             <p>In the mood to join us? Connect your Spotify</p>
             <button class="btn" onclick="loginWithSpotifyClick();">Log in to Spotify</button>
           </div>
-          <a class="show_down_arrow" href="#part_two">
+          <div class="show_down_arrow" onclick ="goToPartTwo()">
             <img src="https://svgshare.com/i/15o8.svg"> 
-          </a>
+          </div>
         </div>
       </div>
 
@@ -62,9 +62,9 @@
       </div>
 
       <div id="part_three" class ="box">
-
-        <div class="scatter_graph">
-          <h2>An analysis of your playlist</h2>
+        <h2>An analysis of your playlist</h2>
+        <div class="scatter_graph box">
+          
           <canvas id="chart"></canvas>
         </div>
 
