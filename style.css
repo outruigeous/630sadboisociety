@@ -10,6 +10,10 @@
     background-color: #1A2324;
     color: #FBF8DE;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
   
   h1 {
     font-weight: 400;
@@ -19,6 +23,8 @@
   }
   h2 {
     color: #FBF8DE;
+    font-weight: 400;
+    letter-spacing: 1px;
   }
   
   
@@ -38,14 +44,32 @@
     margin: 0 auto;
   }
   
-  .btn {
+  .btn:hover{
     display: flex;
     justify-content: center;
     align-content: center;
     font-family: "Roboto Mono", monospace;
     font-size: 16px;
     font-weight: 200; 
-    background: #0B1111;
+    opacity: 1;
+    background-color: rgba(17, 23, 24, 1);
+    color: #FBF8DE;
+    border: 0px;
+    box-sizing: border-box;
+    border-radius: 100px;
+    padding: 1rem 3rem;
+    transition: 500ms;
+    width: 363px;
+    margin: auto; 
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    font-weight: 200;
+    background-color: rgba(17, 23, 24, 0.50);
     color: #FBF8DE;
     border: 0px;
     box-sizing: border-box;
@@ -58,12 +82,22 @@
   
   /* part one – login to spotify */
   
-  .part_one {
+  #part_one {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-flow: column wrap;
     height: 100vh;
+  }
+
+  .part_one_swaps {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
   }
   
   .page_title {
@@ -98,9 +132,18 @@
     text-align: center;
   }
   
+  .show_down_arrow{
+    display: none;
+    opacity: 0.5;
+  }
+
+  .show_down_arrow:hover {
+    opacity: 0.8;
+  }
+
   /* part two – drop playlist url */
   
-  .part_two {
+  #part_two {
     display: flex;
     flex-flow: column wrap;
     height: 100vh;
@@ -169,15 +212,13 @@
   
   /* part three – chart and analysis -option 1 */
 
-  .part_three {
-    display: flex;
+  #part_three {
+    display: none;
     flex-flow: column;
     align-content: center;
     justify-content: space-around;
     gap: 16px;
     padding: 80px 120px;
-
-    
   }
 
   .scatter_graph {
@@ -186,10 +227,10 @@
     height: 470px;
   }
 
-  .angryboi_results,
-  .chillboi_results,
-  .hyperboi_results,
-  .sadboi_results {
+  #angryboi_results,
+  #chillboi_results,
+  #hyperboi_results,
+  #sadboi_results {
     display: flex;
     align-items: center;
     flex: 1 1 auto;
@@ -209,6 +250,13 @@
     flex: 1;
     flex-flow: column;
     padding: 0px 24px;
+    font-weight: 200;
+  }
+
+  #part_three p{
+    font-size: 16px;
+    font-weight: 200;
+    font-style: Italic;
   }
 
   .generate_tracklist {

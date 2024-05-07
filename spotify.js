@@ -59,6 +59,9 @@ async function checkForAuthCode() {
 
     const updatedUrl = url.search ? url.href : url.href.replace("?", "");
     window.history.replaceState({}, document.title, updatedUrl);
+    return true;
+  } else {
+    return false;
   }
   
 }
