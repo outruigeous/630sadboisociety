@@ -7,8 +7,10 @@
  * https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
  */
 
-const clientId = 'a397868428824179bf0f7f4d9e6a193b'; // your clientId
-const redirectUrl = 'https://630-final-project.glitch.me';        // your redirect URL - must be localhost URL and/or HTTPS
+//const clientId = 'a397868428824179bf0f7f4d9e6a193b'; // your clientId
+//const redirectUrl = 'https://630-final-project.glitch.me';        // your redirect URL - must be localhost URL and/or HTTPS
+const clientId = "3bf3566b53ac4cfe99d27848d3ad34d3"; 
+const redirectUrl = "http://localhost:8080";
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";

@@ -1,0 +1,23 @@
+{
+  "name": "sadboi-society",
+  "version": "1.0.0",
+  "description": "",
+  "main": "debug.js",
+  "scripts": {
+    "dev": "vite --port=8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/outruigeous/630sadboisociety.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/outruigeous/630sadboisociety/issues"
+  },
+  "homepage": "https://github.com/outruigeous/630sadboisociety#readme",
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}
