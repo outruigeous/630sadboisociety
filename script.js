@@ -70,10 +70,11 @@ async function getTracksAudioFeatures(something) {
 }
 
 // this function assembles the track name, energy and valence values of the track into the scatter chart data structure
-function assembleChartData(name, audioFeature) {
+function assembleChartData(name, audioFeature, artist) {
   const boiType = getBoyType(audioFeature.valence, audioFeature.energy);
   return {
     label: name,
+    artist,
     data: [
       {
         x: audioFeature.valence,
@@ -119,7 +120,9 @@ const pointBackgroundColor = {
 function processChartData(tracks, audioFeatures) {
   const output = [];
   for (let i = 0; i < tracks.length; i++) {
-    output.push(assembleChartData(tracks[i].name, audioFeatures[i]));
+    output.push(
+      assembleChartData(tracks[i].name, audioFeatures[i], tracks[i].artist)
+    );
   }
 
   return output;
@@ -185,7 +188,7 @@ function injectTracks(processedData) {
   const angryBoiDiv = document.querySelector("#angryboi_tracks");
   angryBoiDiv.innerHTML = "";
   angryBoiSongs.forEach((item) => {
-    const htmlToAdd = `<li>${item.label}</li>`;
+    const htmlToAdd = `<li>${item.label}, ${item.artist}</li>`;
     angryBoiDiv.innerHTML += htmlToAdd;
   });
   const chillBoiDiv = document.querySelector("#chillboi_tracks");
@@ -219,6 +222,7 @@ form.addEventListener("submit", async (submitEvent) => {
   );
   try {
     const playlistItems = await getPlaylistItems(playlistID);
+    console.log(playlistItems);
     // injectTracks(playlistItems.items); // prints playlist items onto screen, for debugging
     const tracks = playlistItems.items
       // "Get Several Tracks' Audio Features" only takes in 100 songs
@@ -227,7 +231,7 @@ form.addEventListener("submit", async (submitEvent) => {
       .map((i) => ({
         name: i.track.name,
         id: i.track.id,
-        artist: i.artists[0].name,
+        artist: i.track.artists[0].name,
       }));
     const audioFeatureResponse = await getTracksAudioFeatures(
       tracks.map((i) => i.id).join(",")
