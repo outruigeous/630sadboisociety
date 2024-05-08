@@ -155,6 +155,16 @@ function getTopBoi(data) {
   return topNumberBoi;
 }
 
+function injectAngryBoiTracks(list) {
+  const target = document.querySelector("#angryboi_tracks");
+  target.innerHTML = "";
+  list.forEach((item) => {
+    // for each item in my list,
+    const htmlToAdd = `<li>${item.label}</li>`;
+    target.innerHTML += htmlToAdd; // for every list item, i add an htmlToAdd
+  });
+}
+
 async function debug() {
   // If we have a token, we're logged in, so fetch user data and render logged in template
   if (currentToken.access_token) {
@@ -164,6 +174,38 @@ async function debug() {
     const userPlaylistData = await getUserPlaylist();
     //Playlist(userPlaylistData.items);
   }
+}
+
+function injectTracks(processedData) {
+  const angryBoiSongs = processedData.filter((d) => d.boiType === "angryboi");
+  const chillBoiSongs = processedData.filter((d) => d.boiType === "chillboi");
+  const hyperBoiSongs = processedData.filter((d) => d.boiType === "hyperboi");
+  const sadBoiSongs = processedData.filter((d) => d.boiType === "sadboi");
+
+  const angryBoiDiv = document.querySelector("#angryboi_tracks");
+  angryBoiDiv.innerHTML = "";
+  angryBoiSongs.forEach((item) => {
+    const htmlToAdd = `<li>${item.label}</li>`;
+    angryBoiDiv.innerHTML += htmlToAdd;
+  });
+  const chillBoiDiv = document.querySelector("#chillboi_tracks");
+  chillBoiDiv.innerHTML = "";
+  chillBoiSongs.forEach((item) => {
+    const htmlToAdd = `<li>${item.label}</li>`;
+    chillBoiDiv.innerHTML += htmlToAdd;
+  });
+  const hyperBoiDiv = document.querySelector("#hyperboi_tracks");
+  hyperBoiDiv.innerHTML = "";
+  hyperBoiSongs.forEach((item) => {
+    const htmlToAdd = `<li>${item.label}</li>`;
+    hyperBoiDiv.innerHTML += htmlToAdd;
+  });
+  const sadBoiDiv = document.querySelector("#sadboi_tracks");
+  sadBoiDiv.innerHTML = "";
+  sadBoiSongs.forEach((item) => {
+    const htmlToAdd = `<li>${item.label}</li>`;
+    sadBoiDiv.innerHTML += htmlToAdd;
+  });
 }
 
 form.addEventListener("submit", async (submitEvent) => {
@@ -177,16 +219,20 @@ form.addEventListener("submit", async (submitEvent) => {
   );
   try {
     const playlistItems = await getPlaylistItems(playlistID);
-    injectTracks(playlistItems.items); // prints playlist items onto screen, for debugging
+    // injectTracks(playlistItems.items); // prints playlist items onto screen, for debugging
     const tracks = playlistItems.items
       // "Get Several Tracks' Audio Features" only takes in 100 songs
       .slice(0, 100)
       // creates a new array to populate it with a list of track names and its corresponding track IDs
-      .map((i) => ({ name: i.track.name, id: i.track.id }));
+      .map((i) => ({
+        name: i.track.name,
+        id: i.track.id,
+        artist: i.artists[0].name,
+      }));
     const audioFeatureResponse = await getTracksAudioFeatures(
       tracks.map((i) => i.id).join(",")
     );
-    injectAudioFeatures(audioFeatureResponse.audio_features);
+    // injectAudioFeatures(audioFeatureResponse.audio_features);
     const processedData = processChartData(
       tracks,
       audioFeatureResponse.audio_features
@@ -218,6 +264,7 @@ form.addEventListener("submit", async (submitEvent) => {
 
     partThreeContainer.style.display = "flex";
     drawChart(processedData);
+    injectTracks(processedData);
 
     partThreeContainer.scrollIntoView();
     chart.resize();
