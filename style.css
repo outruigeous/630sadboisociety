@@ -291,15 +291,10 @@ h2 {
 
 #tracks {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
   padding: 8px 200px;
 }
-
- #tracks > div {
-  flex: 1; 
-  }
 
 #tracks p {
   font-size: 20px;
@@ -311,7 +306,10 @@ h2 {
 #hyper_songs,
 #sad_songs {
   display: flex;
+  flex: 25%;
+  max-width: 25%;
   flex-direction: column;
+  padding: 8px;
   font-size: 14px;
   font-weight: 400;
 }
@@ -340,11 +338,16 @@ h2 {
 
   #tracks {
     padding: 16px 100px 0px 100px;
-    gap: 16px;
   }
   
-   #tracks > div {
-  flex-flow: row wrap;
+  #angry_songs,
+  #chill_songs,
+  #hyper_songs,
+  #sad_songs {
+    flex: 50%;
+    max-width: 50%;
+    padding-bottom: 24px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -390,5 +393,13 @@ h2 {
   }
     #tracks {
     padding: 16px 40px 0px 40px;
+  }
+
+  #angry_songs,
+  #chill_songs,
+  #hyper_songs,
+  #sad_songs {
+    flex: 100%;
+    max-width: 100%;
   }
 }
