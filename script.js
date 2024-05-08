@@ -194,19 +194,19 @@ function injectTracks(processedData) {
   const chillBoiDiv = document.querySelector("#chillboi_tracks");
   chillBoiDiv.innerHTML = "";
   chillBoiSongs.forEach((item) => {
-    const htmlToAdd = `<li>${item.label}</li>`;
+    const htmlToAdd = `<li>${item.label}, ${item.artist}</li>`;
     chillBoiDiv.innerHTML += htmlToAdd;
   });
   const hyperBoiDiv = document.querySelector("#hyperboi_tracks");
   hyperBoiDiv.innerHTML = "";
   hyperBoiSongs.forEach((item) => {
-    const htmlToAdd = `<li>${item.label}</li>`;
+    const htmlToAdd = `<li>${item.label}, ${item.artist}</li>`;
     hyperBoiDiv.innerHTML += htmlToAdd;
   });
   const sadBoiDiv = document.querySelector("#sadboi_tracks");
   sadBoiDiv.innerHTML = "";
   sadBoiSongs.forEach((item) => {
-    const htmlToAdd = `<li>${item.label}</li>`;
+    const htmlToAdd = `<li>${item.label}, ${item.artist}</li>`;
     sadBoiDiv.innerHTML += htmlToAdd;
   });
 }
@@ -243,7 +243,7 @@ form.addEventListener("submit", async (submitEvent) => {
     );
 
     const topBoi = getTopBoi(processedData);
-    injectTopNumberBoi(getTopBoi(processedData));
+    // injectTopNumberBoi(getTopBoi(processedData));
 
     const angryBoiBadge = document.querySelector("#angryboi_results");
     const chillBoiBadge = document.querySelector("#chillboi_results");

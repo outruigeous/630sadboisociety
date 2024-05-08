@@ -44,7 +44,7 @@
 
       <div id="part_two">
         <p>
-          In the depths of the digital realm, where shadows whisper and echoes linger, there lies a question veiled in enigma: <br> Do you truly find solace in the symphony of sadness?<br><br></p>
+          In the depths of the digital realm, <br> where shadows whisper and echoes linger,<br>there lies a question veiled in enigma:<br><br> Do you truly find solace in the symphony of sadness?<br><br><br></p>
         <div class="form">
           <form action="submission.html" method="POST" class="main_form">
             <section class="playlist">
@@ -59,11 +59,11 @@
         </div>
       </div>
 
-      <div id="part_three" class="box">
+      <div id="part_three">
         
         <div id="top_number_boi"></div>
 
-        <div id="angryboi_results" class="box">
+        <div id="angryboi_results">
           <div class="angryboi_icon">
             <img src="https://svgshare.com/i/15oJ.svg" class="svg-icon"/>
           </div>
@@ -77,7 +77,7 @@
           <div class="chillboi_icon">
             <img src="https://svgshare.com/i/15mx.svg" class="svg-icon"/>
           </div>
-          <div class="chillboi_results_text box">
+          <div class="chillboi_results_text">
             <h2>You are a chillboi</h2>
             <p>
               Sorry, your attempt to join the Sadboi Society didn't quite fit the bill. Your vibe is just too chill, which doesn't quite align with our melancholic atmosphere...</p>
@@ -88,7 +88,7 @@
           <div class="hyperboi_icon">
             <img src="https://svgshare.com/i/15n7.svg" class="svg-icon"/>
           </div>
-          <div class="hyperboi_results_text box">
+          <div class="hyperboi_results_text">
             <h2>You are a hyperboi</h2>
             <p>
               Unfortunately, your application to the Sadboi Society has been denied. Your energy is a bit too frenzied for our vibe, disrupting the harmony of our melancholic melody...</p>
@@ -96,7 +96,7 @@
         </div>
 
         <div id="sadboi_results">
-          <div class="sadboi_icon box">
+          <div class="sadboi_icon">
             <img src="https://svgshare.com/i/15oW.svg" class="svg-icon"/>
           </div>
           <div class="hyperboi_results_text">
@@ -106,29 +106,59 @@
           </div>
         </div>
        
-        
+        <div id="try_again_btn">
+          <button class="btn" onclick="(goToPartTwo());">Try Again</button>
+        </svg> 
+        </div>
+
+       
+
         <div class="scatter_graph">
           <h3>An analysis of your playlist</h3>
           <canvas id="chart"></canvas>
         </div>
-      </div>
 
-      <div id="generate_tracklist">
-        <p>Perhaps it's time to reassess your taste in tunes, hmm?</p>
-      </div>
+        <div id="generate_tracklist">
+          <p>Perhaps it's time to reassess your taste in tunes, hmm?</p>
+        </div>
+  
+        <div id="tracks">
+          <div id="angry_songs">
+            <svg width="100" height="1">
+              <line x1="0" y1="0" x2="80" y2="0" stroke="rgb(164,3,31)" stroke-width="4" />
+          </svg>
+            <p>angry songs</p>
+            <div id="angryboi_tracks"></div>
+          </div>
+          <div id="chill_songs">
+            <svg width="100" height="1">
+              <line x1="0" y1="0" x2="80" y2="0" stroke="rgb(103,141,88)" stroke-width="4"/>
+          </svg>
+            <p>chill songs</p>
+            <div id="chillboi_tracks"></div>
+          </div>
+          <div id="hyper_songs">
+            <svg width="100" height="1">
+              <line x1="0" y1="0" x2="80" y2="0" stroke="rgb(249,137,72)" stroke-width="4" />
+          </svg>
+            <p>hyper songs</p>
+            <div id="hyperboi_tracks"></div>
+          </div>
+          <div id="sad_songs">
+            <svg width="100" height="1">
+              <line x1="0" y1="0" x2="80" y2="0" stroke="rgb(113,148,152)" stroke-width="4" />
+          </svg>
+            <p>sad songs</p>
+            <div id="sadboi_tracks"></div>
+          </div>
+        
+          
+      
+        </div>
 
-      <div id="tracks">
-        <p>angry songs</p>
-        <div id="angryboi_tracks"></div>
-        <p>chill songs</p>
-        <div id="chillboi_tracks"></div>
-        <p>hyper songs</p>
-        <div id="hyperboi_tracks"></div>
-        <p>sad songs</p>
-        <div id="sadboi_tracks"></div>
-      </div>
      
-
+        
+      </div>
     </div>
 
     <!-- <div id="test_user"></div>

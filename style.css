@@ -7,7 +7,7 @@
   
   body {
     font-family: "Roboto Mono", monospace;
-    background-color: #1A2324;
+    background-color: #222e2f;
     color: #FBF8DE;
   }
 
@@ -33,7 +33,7 @@
     min-height: var(--wrapper-height);
     display: grid;
     place-items: center;
-    margin: 0 1rem;
+    margin: 0px;
   }
   
   .box {
@@ -49,7 +49,7 @@
     font-size: 16px;
     font-weight: 200; 
     opacity: 1;
-    background-color: rgba(9, 12, 12, 1);
+    background-color: rgba(0, 0, 0, 1);
     color: #FBF8DE;
     border: 0px;
     box-sizing: border-box;
@@ -66,7 +66,7 @@
     font-family: "Roboto Mono", monospace;
     font-size: 16px;
     font-weight: 200;
-    background-color: rgba(9, 12, 12, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
     color: #FBF8DE;
     border: 0px;
     box-sizing: border-box;
@@ -146,9 +146,11 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 24px;
   }
   
   #part_two p{
+    flex-wrap: wrap;
     font-size: 16px;
     font-weight: 200;
     font-style: Italic;
@@ -191,7 +193,7 @@
     border-bottom: 2px solid rgba(251, 248, 222, 0.50); 
     margin: 8px;
     padding: 8px; 
-    width: 700px;
+    width: 600px;
   }
 
   #link:focus{
@@ -204,10 +206,10 @@
     outline: none;
     margin: 8px;
     padding: 8px; 
-    width: 700px;
+    width: 600px;
   }
   
-  /* part three – chart and analysis -option 1 */
+  /* part three – chart and analysis */
 
   #part_three {
     display: none;
@@ -215,8 +217,6 @@
     align-content: center;
     justify-content: center;
     gap: 16px;
-    padding: 48px 250px;
-    height: 100vh;
   }
 
   #angryboi_results,
@@ -226,8 +226,9 @@
     display: flex;
     align-items: center;
     flex: 1 1 auto;
-    flex-flow: row;
+    flex-flow: row wrap;
     width: 100%;
+    padding: 16px 200px 0px 200px;
   }
 
   .svg-icon {
@@ -241,21 +242,29 @@
   .sadboi_results_text {
     display: flex;
     flex: 1;
-    flex-flow: column;
+    flex-flow: column wrap;
     padding: 0px 24px;
     font-weight: 200;
+  }
+
+  .angryboi_results_text h2, 
+  .chillboi_results_text h2,
+  .hyperboi_results_text h2,
+  .sadboi_results_text h2 {
+    margin-bottom: 4px;
   }
 
   .scatter_graph {
     display: flex;
     flex: 1 1 auto; 
     flex-direction: column;
-    height: 470px;
+    padding: 16px 200px 0px 200px;
   }
 
   .scatter_graph h3 {
     font-size: 20px;
     font-weight: 400;
+    text-align: center;
   }
 
   #chart {
@@ -277,58 +286,89 @@
     flex: 0 0 48%;
     flex-flow: column wrap;
     font-weight: 300;
+    text-align: center;
   }
 
-    /* part three – chart and analysis -option 2 */
-
-  /* .part_three {
+  #tracks {
     display: flex;
-    justify-content: center;
-    align-content: center;
     flex-flow: row;
-    gap: 16px;
-    padding: 0px 120px;
-    height: 100vh;
-    width: 100vw;
+    gap: 24px;
+    padding: 8px 100px;
+  }
+
+  #tracks p{
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  #angry_songs,
+  #chill_songs,
+  #hyper_songs,
+  #sad_songs {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  #try_again_btn {
+    display: flex;
+    margin: 24px;
+  }
+
+  @media (max-width: 800px) {
+     /* part one – login to spotify */
+  
+    .part_one_swaps {
+      font-size: 16px;
+      font-weight: 200;
+      text-align: center;
+    }
     
-  }
-
-  .scatter_graph {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-content: center; 
-    max-width: 50%;
-  }
-
-  .angryboi_results {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    flex: 1;
-    flex-flow: column wrap;
-    max-width: 50%;
-  }
-
-  .svg-icon {
-    flex: 1 1 auto;
-    width: 100%;
-    height: auto;
-  }
-
-  .angryboi_results_text {
-    display: flex;
-    flex: 1;
-    flex-flow: column;
-    justify-content: center; 
-    align-items: center;
-  }
-
-  .generate_tracklist {
-    display: flex;
-
+    .page_title {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-flow: column wrap;
+      margin: 96px;
+    }
     
-  } */
+    .login_spotify {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-flow: column wrap;
+      font-size: 16px;
+      font-weight: 200;
+      text-align: center;
+    }
+    
+    .page_title p{
+      font-size: 24px;
+      font-weight: 200;
+      letter-spacing: 10px;
+      text-align: center;
+      margin: 4px;
+    }
+    
+    .login_spotify p{
+      font-size: 16px;
+      font-weight: 200;
+      text-align: center;
+    }
+    
+    .show_down_arrow{
+      display: none;
+      opacity: 0.5;
+    }
+  
+    .show_down_arrow:hover {
+      opacity: 0.8;
+    }
 
+    #part_two {
+      margin: 0px 24px;
+    }
+  }
   
   
