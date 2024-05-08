@@ -187,10 +187,10 @@
     font-size: 1rem;
     font-weight: 200;
     color: #FBF8DE;
-    border: none; /* Remove any existing borders */
-    border-bottom: 2px solid rgba(251, 248, 222, 0.50); /* Set bottom border properties */
+    border: none; 
+    border-bottom: 2px solid rgba(251, 248, 222, 0.50); 
     margin: 8px;
-    padding: 8px; /* Add padding to the input field */
+    padding: 8px; 
     width: 700px;
   }
 
@@ -199,11 +199,11 @@
     font-family: "Roboto Mono", monospace;
     font-size: 1rem;
     color: #FBF8DE;
-    border: none; /* Remove any existing borders */
-    border-bottom: 2px solid #FBF8DE; /* Set bottom border properties */
+    border: none; 
+    border-bottom: 2px solid #FBF8DE; 
     outline: none;
     margin: 8px;
-    padding: 8px; /* Add padding to the input field */
+    padding: 8px; 
     width: 700px;
   }
   
@@ -249,12 +249,13 @@
   .scatter_graph {
     display: flex;
     flex: 1 1 auto; 
+    flex-direction: column;
     height: 470px;
   }
 
-  #part_three h3 {
+  .scatter_graph h3 {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   #chart {
@@ -263,7 +264,6 @@
     border-radius: 4px;
   }
 
-  
 
   #part_three p{
     font-size: 16px;
