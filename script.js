@@ -18,16 +18,13 @@ function showDownArrow() {
   downArrowContainer.style.display = "flex";
 }
 
+// debugging
 async function getUserData() {
   const response = await fetch("https://api.spotify.com/v1/me", {
     method: "GET",
     headers: { Authorization: "Bearer " + currentToken.access_token },
   });
   return await response.json();
-}
-
-function goToPartTwo() {
-  document.querySelector("#part_two").scrollIntoView();
 }
 
 async function getUserPlaylist() {
@@ -40,6 +37,12 @@ async function getUserPlaylist() {
   );
 
   return await response.json();
+}
+
+// navigation
+
+function goToPartTwo() {
+  document.querySelector("#part_two").scrollIntoView();
 }
 
 async function getPlaylistItems(playlistID) {
@@ -297,6 +300,13 @@ async function setupChart() {
         y: { min: 0, max: 1 },
       },
       plugins: {
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return context.raw.name;
+            },
+          },
+        },
         annotation: {
           annotations: {
             line1: {
@@ -364,6 +374,7 @@ async function drawChart(processedData) {
     );
     // Add the data point to the dataset
     chart.data.datasets[datasetIndex].data.push({
+      name: dataPoint.label,
       x: dataPoint.data[0].x,
       y: dataPoint.data[0].y,
     });
