@@ -66,30 +66,10 @@ async function getTracksAudioFeatures(something) {
     }
   );
 
-  if (!response.ok) {
-    console.log(await response.body());
-  }
   return await response.json();
 }
 
-// this function assembles the track name, energy and valence values of the track into the scatter chart data structure
-function assembleChartData(name, audioFeature, artist) {
-  const boiType = getBoyType(audioFeature.valence, audioFeature.energy);
-  return {
-    label: name,
-    artist,
-    data: [
-      {
-        x: audioFeature.valence,
-        y: audioFeature.energy,
-      },
-    ],
-    backgroundColor: pointBackgroundColor[boiType],
-    boiType, // idk what this does
-  };
-}
-
-// labelling the quadrants
+// categorizing data from spotify
 function getBoyType(x, y) {
   if (x <= xDivider) {
     // left side
@@ -119,6 +99,23 @@ const pointBackgroundColor = {
   hyperboi: "rgb(249,137,72)",
 };
 
+// this function assembles the track name, energy and valence values of the track into the scatter chart data structure
+function assembleChartData(name, audioFeature, artist) {
+  const boiType = getBoyType(audioFeature.valence, audioFeature.energy);
+  return {
+    label: name,
+    artist,
+    data: [
+      {
+        x: audioFeature.valence,
+        y: audioFeature.energy,
+      },
+    ],
+    backgroundColor: pointBackgroundColor[boiType],
+    boiType,
+  };
+}
+
 // merging the arrays from Spotify API to create the chart data
 function processChartData(tracks, audioFeatures) {
   const output = [];
@@ -127,7 +124,6 @@ function processChartData(tracks, audioFeatures) {
       assembleChartData(tracks[i].name, audioFeatures[i], tracks[i].artist)
     );
   }
-
   return output;
 }
 
@@ -157,7 +153,6 @@ function getTopBoi(data) {
       topNumberBoi = eachBoi;
     }
   }
-  console.log(count);
   return topNumberBoi;
 }
 
@@ -169,17 +164,6 @@ function injectAngryBoiTracks(list) {
     const htmlToAdd = `<li>${item.label}</li>`;
     target.innerHTML += htmlToAdd; // for every list item, i add an htmlToAdd
   });
-}
-
-async function debug() {
-  // If we have a token, we're logged in, so fetch user data and render logged in template
-  if (currentToken.access_token) {
-    const userData = await getUserData(); //calling the API
-    const element = document.querySelector("#test_user");
-    element.innerHTML = JSON.stringify(userData, null, 2);
-    const userPlaylistData = await getUserPlaylist();
-    //Playlist(userPlaylistData.items);
-  }
 }
 
 function injectTracks(processedData) {
@@ -366,6 +350,9 @@ async function setupChart() {
 
 async function drawChart(processedData) {
   console.log(chart.data);
+  for (let dataset of chart.data.datasets) {
+    dataset.data = [];
+  }
   // Iterate over processedData and populate datasets with corresponding data points
   processedData.forEach((dataPoint) => {
     // Find the index of the dataset corresponding to the data point's boiType
@@ -389,5 +376,4 @@ document.addEventListener("DOMContentLoaded", async (event) => {
   if (hasAuthCode) {
     showDownArrow();
   }
-  // debug();
 });
