@@ -285,6 +285,9 @@ async function setupChart() {
       },
       plugins: {
         tooltip: {
+          bodyFont: {
+            size: 16,
+          },
           callbacks: {
             label: function (context) {
               return context.raw.name;
@@ -315,7 +318,7 @@ async function setupChart() {
             color: "#FBF8DE",
             font: {
               family: "Roboto Mono",
-              size: 12,
+              size: 14,
               weight: 300,
             },
             letterSpacing: 4,
