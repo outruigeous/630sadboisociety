@@ -279,9 +279,9 @@ async function setupChart() {
           hoverRadius: 8,
         },
       },
-      scale: {
-        x: { min: 0, max: 1 },
-        y: { min: 0, max: 1 },
+      scales: {
+        x: { min: 0, max: 1, grid: { color: "rgba(251,248,222,0.1)" } },
+        y: { min: 0, max: 1, grid: { color: "rgba(251,248,222,0.1)" } },
       },
       plugins: {
         tooltip: {
@@ -300,14 +300,14 @@ async function setupChart() {
               type: "line",
               xMin: xDivider,
               xMax: xDivider,
-              borderColor: "rgb(0, 0, 0)",
+              borderColor: "rgb(251,248,222,0.3)",
               borderWidth: 2,
             },
             line2: {
               type: "line",
               yMin: yDivider,
               yMax: yDivider,
-              borderColor: "rgb(0, 0, 0)",
+              borderColor: "rgb(251,248,222,0.3)",
               borderWidth: 2,
             },
           },
